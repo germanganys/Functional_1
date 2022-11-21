@@ -35,9 +35,6 @@ jobs:
     - name: Run Fourmolu
       uses: fourmolu/fourmolu-action@v2
 
-    - name: Haskell Linter
-      uses: domdere/haskell-lint-action@v1.0.2
-
     - name: Install dependencies
       run: |
         cabal update
