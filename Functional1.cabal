@@ -1,0 +1,31 @@
+cabal-version:      2.4
+name:               Functional1
+version:            0.1.0.0
+
+-- A short (one-line) description of the package.
+-- synopsis:
+
+-- A longer description of the package.
+-- description:
+
+-- A URL where users can report bugs.
+-- bug-reports:
+
+-- The license under which the package is released.
+-- license:
+author:             germanganys
+maintainer:         german.ganys@gmail.com
+
+-- A copyright notice.
+-- copyright:
+-- category:
+extra-source-files:
+    CHANGELOG.md
+    README.md
+
+executable Functional1_1
+    main-is:          lab_1_2.hs
+
+    build-depends:    base ^>=4.13.0.0
+    hs-source-dirs:   app
+    default-language: Haskell2010
