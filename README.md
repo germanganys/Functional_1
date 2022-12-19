@@ -33,6 +33,19 @@ fibonaci = map fst (iterate f (0,1)) where f (x,y) = (y,x+y)
 main =
     putStrLn $ show $ sum $ filter (\x -> x `mod` 2 == 0) $ takeWhile (< 4000000) $ fibonacci
 ```
+### Вариант с использование fold
+
+```haskell
+fibonacci = 1 : 2 : (zipWith (+) fibonacci (tail fibonacci))
+
+main =
+    putStrLn $
+        show $
+            foldl (+) 0 $
+                filter (\x -> x `mod` 2 == 0) $
+                    takeWhile (< 4000000) $
+                        fibonacci
+```
 
 ### Вариант с использованием рекурсии
 ```haskell
