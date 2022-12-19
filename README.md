@@ -59,11 +59,6 @@ fib_sum_even_helper start1 start2 acc border =
 fib_sum_even max = fib_sum_even_helper 0 1 0 max
 main = putStrLn $ show $ fib_sum_even 4000000
 ```
-
-
-fib_sum_even max = fib_sum_even_helper 0 1 0 max
-main = putStrLn $ show $ fib_sum_even 4000000
-```
                                 
 ## Задача 29:
 ### Условие:
