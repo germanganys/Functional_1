@@ -27,6 +27,43 @@ main =
 ```
 ### Ответ: 4613732
 
+### Вариант с использование map
+```haskell
+fibonaci = map fst (iterate f (0,1)) where f (x,y) = (y,x+y)
+main =
+    putStrLn $ show $ sum $ filter (\x -> x `mod` 2 == 0) $ takeWhile (< 4000000) $ fibonacci
+```
+
+### Вариант с использованием рекурсии
+```haskell
+fib_sum_even_helper start1 start2 acc border = 
+    if start2 < border then
+        if (start1 + start2) `mod` 2 == 0 then 
+            fib_sum_even_helper start2 (start1 + start2) (acc + start1 + start2) border
+        else
+            fib_sum_even_helper start2 (start1 + start2) acc border
+    else acc
+```
+
+### Вариант с использованием хвостовой рекурсии
+```haskell
+choice_helper a b | (a + b) `mod` 2 == 0 = a + b
+                  | otherwise = 0
+
+fib_sum_even_helper start1 start2 acc border = 
+    if start2 < border then
+        fib_sum_even_helper start2 (start1 + start2) (acc + (choice_helper start1 start2)) border
+    else 
+        acc
+
+fib_sum_even max = fib_sum_even_helper 0 1 0 max
+main = putStrLn $ show $ fib_sum_even 4000000
+```
+
+
+fib_sum_even max = fib_sum_even_helper 0 1 0 max
+main = putStrLn $ show $ fib_sum_even 4000000
+```
                                 
 ## Задача 29:
 ### Условие:
