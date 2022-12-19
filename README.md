@@ -108,6 +108,19 @@ import Control.Monad
 main = length . group . sort $ liftM2 (^) [2..100] [2..100]
 ```
 
+### Реализация с помощью хвостовой рекурсии
+```haskell
+import Data.List (nub)
+
+lst_helper l1 l2 result = 
+    if null l1 then result
+    else lst_helper (tail l1) l2 (result ++ [(head l1) ^ y | y <- l2])
+
+lst l1 l2 = lst_helper l1 l2 []
+
+main = putStrLn $ show $ length $ nub $ lst [2..100] [2..100]
+```
+
 ### Реализация на любимом языке
 ```python
 if __name__ == "__main__":
