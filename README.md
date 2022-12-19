@@ -59,7 +59,24 @@ fib_sum_even_helper start1 start2 acc border =
 fib_sum_even max = fib_sum_even_helper 0 1 0 max
 main = putStrLn $ show $ fib_sum_even 4000000
 ```
-                                
+
+### Реализация на любимом языке
+```python
+def compute():
+	ans = 0
+	x = 1
+	y = 2
+	while x <= 4000000:
+		if x % 2 == 0:
+			ans += x
+		x, y = y, x + y
+	return ans
+
+
+if __name__ == "__main__":
+	print(compute())
+```
+
 ## Задача 29:
 ### Условие:
 Рассмотрим все целочисленные комбинации ab для 2 ≤ a ≤ 5 и 2 ≤ b ≤ 5:
@@ -85,10 +102,17 @@ main = putStrLn $ show $ size $ fromList [x ^ y | x <- [2 .. 100], y <- [2 .. 10
 
 Здесь я заиспользовал Set для оптимизации вычисления повторяющихся элементов.
 
-Реализация с использованием монады:
+### Реализация с использованием монады:
 ```haskell
 import Control.Monad
 main = length . group . sort $ liftM2 (^) [2..100] [2..100]
+```
+
+### Реализация на любимом языке
+```python
+if __name__ == "__main__":
+    seen = set(a**b for a in range(2, 101) for b in range(2, 101))
+	print(len(seen))
 ```
 
 ## Вывод:
